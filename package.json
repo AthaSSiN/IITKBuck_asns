@@ -1,0 +1,23 @@
+{
+  "name": "iitkbuck_asns",
+  "version": "1.0.0",
+  "dependencies": {
+    "asn1.js": "^5.3.0",
+    "express": "^4.17.1"
+  },
+  "description": "Assignments solutions for IIT-Bucks project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AthaSSiN/IITKBuck_asns.git"
+  },
+  "author": "Atharv Singh Patlan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AthaSSiN/IITKBuck_asns/issues"
+  },
+  "homepage": "https://github.com/AthaSSiN/IITKBuck_asns#readme"
+}
