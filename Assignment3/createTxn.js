@@ -108,11 +108,9 @@ function main()
                 let str;
                 try {
                     str = fs.readFileSync(line, 'utf-8');
-               } catch (err) {
-                   console.log("File not found, reading default public key);
+                 } catch (err) {
+                   console.log("File not found, reading default public key");
                    str = fs.readFileSync("../Assignment2/pubKey.pem", 'utf-8');
-                  
- 
                  } 
                 output.pubKeyLen = str.length;
                 output.pubKey = str;
