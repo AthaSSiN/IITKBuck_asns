@@ -12,7 +12,7 @@ app.get('/hash', (req, res) => {
     {
         i++;
         input = str + i;
-        output = crypto.createHash('sha256').update(input).digest('hex')
+        output = crypto.createHash('sha256').update(input).digest('hex');
     } while(output.substring(0,4) !== "0000");
     var send = `For the string \"${str}\" <br> Magic Number : ${i} <br> SHA256 hash in hex : ${output}`;
     res.send(send);

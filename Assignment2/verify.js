@@ -21,9 +21,9 @@ io.question("Enter path to public key: ", str =>{
         try {
             sign = fs.readFileSync(str);
         } catch(err) {
-            sign = str;
+            sign = Buffer.from(str, 'hex');
         }
-        //console.log(sign);
+        console.log(sign);
         io.question("Enter claimed message text: ", str => {
             const verify = crypto.createVerify("RSA-SHA256");
             verify.write(str);
