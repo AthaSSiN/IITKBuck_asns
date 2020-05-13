@@ -105,7 +105,15 @@ function main()
 
             else
             {
-                let str = fs.readFileSync("../Assignment2/pubKey.pem", 'utf-8');
+                let str;
+                try {
+                    str = fs.readFileSync(line, 'utf-8');
+               } catch (err) {
+                   console.log("File not found, reading default public key);
+                   str = fs.readFileSync("../Assignment2/pubKey.pem", 'utf-8');
+                  
+ 
+                 } 
                 output.pubKeyLen = str.length;
                 output.pubKey = str;
                 txn.pushOutputs(output);
@@ -140,6 +148,8 @@ function writeToFile(txn)
 {
     let inputs = txn.getInputs();
     let outputs = txn.getOutputs();
+    console.log(inputs);
+    console.log(outputs);
 
     pushInt(txn.numInputs);
     
