@@ -57,11 +57,17 @@ function main()
                     console.log("Taking abs value of negative int");
                 input.index = Math.abs(parseInt(line));
                 console.log(`Enter Signature`);
+                console.log(`As the sign is hex, please enter an even number of characters, otherwise there might be unwanted errors in the hash calculation`);
             }
 
             else
             {
                 input.sigLength = line.length;
+                if(line.length % 2 !== 0)
+                {
+                    line.concat('0');
+                    input.sigLength = line.length + 1;
+                }
                 input.sig = line;
                 txn.pushInputs(input);
                 input = new Input;
@@ -108,10 +114,10 @@ function main()
                 let str;
                 try {
                     str = fs.readFileSync(line, 'utf-8');
-                 } catch (err) {
+                } catch (err) {
                    console.log("File not found, reading default public key");
                    str = fs.readFileSync("../Assignment2/pubKey.pem", 'utf-8');
-                 } 
+                } 
                 output.pubKeyLen = str.length;
                 output.pubKey = str;
                 txn.pushOutputs(output);
