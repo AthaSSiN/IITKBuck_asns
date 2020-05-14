@@ -9,6 +9,7 @@ cbbee9817ab2585079ce0490369ea016808df2349a736a2ae19db4247cc9b96e
 The default value of the hash is set as cbbee9817ab2585079ce0490369ea016808df2349a736a2ae19db4247cc9b96e.
 The outputs are displayed in the console in the following format:  
 
+```bash
 Transaction ID: <in hex format>  
 Number of inputs: <an integer>  
     Input 1:  
@@ -32,3 +33,4 @@ Number of outputs: <an integer>
         Length of public key: <an integer>  
         Public key: <in PEM format>  
     ...  
+    ```
