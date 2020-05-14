@@ -13,7 +13,7 @@ rl.question("Enter the hash of the transaction to be read: ", hash => {
     let str;
     try {
         let check = hash.toString().concat(".dat");
-        str = fs.readFileSync(hash);
+        str = fs.readFileSync(check);
     } catch(err) {
         hash = "cbbee9817ab2585079ce0490369ea016808df2349a736a2ae19db4247cc9b96e";
         console.log("File not found, reading the sample file cbbee9817ab2585079ce0490369ea016808df2349a736a2ae19db4247cc9b96e.dat");
