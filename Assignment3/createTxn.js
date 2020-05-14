@@ -1,9 +1,9 @@
 const fs = require('fs');
 const crypto = require('crypto');
 const readline = require('readline');
-const Transaction = require("./Transaction");
-const Output = require("./Output");
-const Input = require("./Input");
+const Transaction = require("../classes/Transaction");
+const Output = require("../classes/Output");
+const Input = require("../classes/Input");
 
 const rl = readline.createInterface({
     input: process.stdin,
