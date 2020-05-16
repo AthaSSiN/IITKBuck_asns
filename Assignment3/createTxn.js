@@ -62,12 +62,11 @@ function main()
 
             else
             {
-                input.sigLength = line.length;
                 if(line.length % 2 !== 0)
                 {
                     line.concat('0');
-                    input.sigLength = line.length + 1;
                 }
+                input.sigLength = line.length/2;
                 input.sig = line;
                 txn.pushInputs(input);
                 input = new Input;
@@ -116,7 +115,7 @@ function main()
                     str = fs.readFileSync(line, 'utf-8');
                 } catch (err) {
                    console.log("File not found, reading default public key");
-                   str = fs.readFileSync("../Assignment2/pubKey.pem", 'utf-8');
+                   str = fs.readFileSync("pubKeySample.pem", 'utf-8');
                 } 
                 output.pubKeyLen = str.length;
                 output.pubKey = str;

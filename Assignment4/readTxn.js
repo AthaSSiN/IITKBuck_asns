@@ -1,5 +1,6 @@
 const fs = require('fs');
 const readline = require('readline');
+const crypto = require('crypto');
 const Transaction = require("../classes/Transaction");
 const Output = require("../classes/Output");
 const Input = require("../classes/Input");
@@ -9,16 +10,17 @@ const rl = readline.createInterface({
     output: process.stdout
 })
 
-rl.question("Enter the hash of the transaction to be read: ", hash => {
-    let str;
+rl.question("Enter the relative path to the binary file to be read: ", name => {
+    let ans;
     try {
-        let check = hash.toString().concat(".dat");
-        str = fs.readFileSync(check);
+        str = fs.readFileSync(ans);
     } catch(err) {
-        hash = "cbbee9817ab2585079ce0490369ea016808df2349a736a2ae19db4247cc9b96e";
-        console.log("File not found, reading the sample file cbbee9817ab2585079ce0490369ea016808df2349a736a2ae19db4247cc9b96e.dat");
-        str = fs.readFileSync("cbbee9817ab2585079ce0490369ea016808df2349a736a2ae19db4247cc9b96e.dat");
+        console.log("File not found, reading the sample file 010.dat");
+        str = fs.readFileSync("010.dat");
     }
+    let hash = crypto.createHash('sha256').update(str).digest('hex');
+    hash = hash.toString();
+
     let txn = new Transaction;
     txn.numInputs = readInt(str, 0,4);
     let start = 4;
@@ -32,8 +34,8 @@ rl.question("Enter the hash of the transaction to be read: ", hash => {
         start += 4;
         input.sigLength = readInt(str, start, start + 4);
         start += 4;
-        input.sig = str.toString("hex", start, start + input.sigLength/2);
-        start += input.sigLength/2;
+        input.sig = str.toString("hex", start, start + input.sigLength);
+        start += input.sigLength;
         txn.pushInputs(input);
     }
 
@@ -52,7 +54,7 @@ rl.question("Enter the hash of the transaction to be read: ", hash => {
         txn.pushOutputs(output);
     }
 
-    console.log(`Transaction ID : ${hash}\n`);
+    console.log(`\nTransaction ID : ${hash}\n`);
     console.log(`Number of inputs: ${txn.numInputs}\n`);
 
     let inputs = txn.getInputs();
