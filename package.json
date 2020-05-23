@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "dependencies": {
     "asn1.js": "^5.3.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nano-time": "^1.0.0"
   },
   "description": "Assignments solutions for IIT-Bucks project",
   "main": "index.js",
