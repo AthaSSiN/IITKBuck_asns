@@ -1,7 +1,7 @@
 const express = require('express');
 const crypto = require('crypto');
 const bodyParser = require('body-parser');
-const Worker = require('worker_threads');
+const {Worker} = require('worker_threads');
  
 const app = express();
 

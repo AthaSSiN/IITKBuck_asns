@@ -6,7 +6,7 @@ let bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-let peers = ['1261fcf5.ngrok.io', 'cb47f473.ngrok.io'];
+let peers = ['850cbbc6f863.ngrok.io', '73b41eab5c74.ngrok.io', '6d3bb1020601.ngrok.io'];
 
 let dict = new Map();
   
